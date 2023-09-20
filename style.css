@@ -25,6 +25,17 @@ a {
 
 /* Reset End*/
 
+:root {
+    --green-800: #3f6212; 
+    --green-700: #4d7c0f;
+    --green-600: #3f6212; 
+    --green-500: #84cc16; 
+    --green-400: #a3e635; 
+    --green-300: #bef264; 
+    --green-200: #d9f99d; 
+    --green-100: #ecfccb; 
+    --green-50: #f7fee7;
+}
 
 img {
     max-width: 100%;
@@ -46,7 +57,7 @@ a {
     font-weight: 600;
     padding: 0.5rem;
 
-    color: snow;
+    color: var(--green-50);
 }
 
 h1 {
@@ -56,11 +67,12 @@ h1 {
 
     font-size: 1.5rem;
     font-weight: bold;
+    overflow: hidden;
 }
 
 
 h1 > img {
-    max-height: 4rem;
+    max-height: 3rem;
 }
 
 input {
@@ -68,7 +80,7 @@ input {
     border-radius: 10px;
     min-width: 60vh;
     border: none;
-    background-color: cadetblue;
+    background-color: var(--green-200);
 }
 
 
@@ -117,41 +129,48 @@ input {
 
 .greet_button {
     border-radius: 20px;
-    background-color: rgb(109, 109, 255);
+    background-color: var(--green-700);
     padding: 5px 25px;
-    color: snow;
+    color: var(--green-50);
     border: none;
 
 }
 
 /* Grid */
 
+html { height: 100%; }
+body { min-height: 100%; }
+
 .container {
     display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 1fr 6fr;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 9fr;
+    width: 100vw;
+    height: 100vh;
 
 }
 
 .sidebar {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    border: 3px solid black;
     
     
-    background-color: rgb(109, 109, 255);
-    color: snow;
+    background-color: var(--green-700);
+    color: var(--green-50);
 
     display: flex;
     flex-direction: column;
-    padding: 10px 20px;
-    gap: 30px;
+    padding: 10px 10px;
+    gap: 20px;
+
+    min-height: fit-content;
+
+
 }
 
 .header {
     grid-column: 2 / 3;
 
-    border: 3px solid red;
 
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -162,7 +181,8 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 50px;
+    padding: 0px 50px;
+    background-color: var(--green-50);
 
 }
 
@@ -192,7 +212,10 @@ input {
     grid-row: 2 / 3;
     display: flex;
     justify-content: space-between;
-    margin: 0px 50px;
+    padding: 0px 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--green-50);
 }
 
 .greet_left {
@@ -220,7 +243,125 @@ input {
 }
 
 .main {
+
     grid-column: 2 / 3;
-    border: 3px solid blue;
+
+    display: grid;
+    gap: 0px;
+
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    min-height: fit-content;
+    background-color: var(--green-200);
 }
 
+.project {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+
+    padding-top: 20px;
+    padding-left: 20px;
+
+
+}
+
+.project > h2 {
+    display: flex;
+    align-self: self-start;
+}
+
+.cards {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+    grid-auto-rows: auto;
+}
+
+.card {
+    display: grid;
+
+    border-radius: 10px;
+    box-shadow: -7px 0px 0px var(--green-500);
+
+    max-width: 40vw;
+    max-height: 30vh;
+    min-width: 20vw;
+    min-height: 20vh;
+
+    margin: 20px;
+
+    background-color: var(--green-50);
+    padding: 10px;
+}
+
+.card > div {
+    display: flex;
+    justify-content: end;
+    align-content: end;
+}
+
+
+.announcement {
+
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+
+    padding: 20px;
+    gap: 20px;
+
+
+    background-color: var(--green-200);
+}
+
+.story {
+    background-color: var(--green-50);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+.news > h4 {
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.announcement .news:not(:last-child) p {
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.story:last-child > p {
+    padding-bottom: 10px;
+    border-bottom: none;
+}
+
+.trending {
+    grid-area: 2 / 2 / 3 / 3;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    gap: 20px;
+
+
+    background-color: var(--green-200);
+}
+
+.trends {
+    background-color: var(--green-50);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.account {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0px;
+    align-content: center;
+}
